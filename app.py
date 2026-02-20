@@ -4,6 +4,24 @@ st.set_page_config(page_title="Flip Profit", page_icon="💸")
 
 st.title("💸 Flip Profit")
 st.caption("Buy Smart. Flip Smarter.")
+# --- PRO ACCESS (manual) ---
+st.subheader("🔐 Pro Access")
+
+PRO_USERS = {
+    # Add paying customer emails here (lowercase)
+    # Example:
+    # "customer@email.com",
+}
+
+user_email = st.text_input("Enter your purchase email to unlock Pro", "").strip().lower()
+is_pro = user_email in PRO_USERS
+
+if is_pro:
+    st.success("✅ Pro unlocked")
+else:
+    st.info("🔒 Pro locked — subscribe below to unlock Pro features.")
+# --- END PRO ACCESS ---
+
 # --- Upgrade / Subscribe section ---
 st.divider()
 st.subheader("🚀 Upgrade to Flip Profit Pro")
@@ -48,6 +66,13 @@ total = buy + shipping + repairs
 net = sell - fee_cost - total
 roi = (net / total * 100) if total else 0
 ppd = net / days
+st.subheader("📌 Max Bid (Pro)")
+
+if is_pro:
+    max_bid = sell - fee_cost - shipping - repairs - target_profit
+    st.metric("Max Bid (to hit target profit)", f"${max_bid:,.2f}")
+else:
+    st.warning("Pro feature. Subscribe to unlock Max Bid.")
 
 risk = (untested + heavy + fragile + slow) * 10
 confidence_penalty = (100 - confidence) * 0.3
