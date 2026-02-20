@@ -39,7 +39,7 @@ with colA:
 
 with colB:
     st.markdown("### ⭐ Pro Yearly (Best Value)")
-    st.markdown("**$79/yr**")
+    st.markdown("**$49/yr**")
     st.link_button("Subscribe Yearly", YEARLY_LINK)
 
 st.caption("Payments are handled securely by Stripe. You’ll be redirected back after checkout.")
