@@ -72,7 +72,8 @@ if is_pro:
     max_bid = sell - fee_cost - shipping - repairs - target_profit
     st.metric("Max Bid (to hit target profit)", f"${max_bid:,.2f}")
 else:
-    st.warning("Pro feature. Subscribe to unlock Max Bid.")
+    st.warning("🔒 Pro feature — subscribe above to unlock Max Bid.")
+
 
 risk = (untested + heavy + fragile + slow) * 10
 confidence_penalty = (100 - confidence) * 0.3
