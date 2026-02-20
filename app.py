@@ -4,6 +4,29 @@ st.set_page_config(page_title="Flip Profit", page_icon="💸")
 
 st.title("💸 Flip Profit")
 st.caption("Buy Smart. Flip Smarter.")
+# --- Upgrade / Subscribe section ---
+st.divider()
+st.subheader("🚀 Upgrade to Flip Profit Pro")
+
+st.write("Pro includes unlimited calculations, max-bid guidance, and upcoming pro tools.")
+colA, colB = st.columns(2)
+
+MONTHLY_LINK = "https://buy.stripe.com/test_00w4gz480dp57Aa4SUfQI00"
+YEARLY_LINK  = "https://buy.stripe.com/test_28E00jawoet9dYyadefQI01"
+
+with colA:
+    st.markdown("### ✅ Pro Monthly (Default)")
+    st.markdown("**$7/mo**")
+    st.link_button("Subscribe Monthly", MONTHLY_LINK)
+
+with colB:
+    st.markdown("### ⭐ Pro Yearly (Best Value)")
+    st.markdown("**$79/yr**")
+    st.link_button("Subscribe Yearly", YEARLY_LINK)
+
+st.caption("Payments are handled securely by Stripe. You’ll be redirected back after checkout.")
+st.divider()
+# --- End Upgrade section ---
 
 buy = st.number_input("Buy Price ($)", 0.0, 10000.0, 25.0)
 sell = st.number_input("Expected Sale Price ($)", 0.0, 20000.0, 60.0)
